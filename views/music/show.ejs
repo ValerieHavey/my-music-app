@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title><% music.songName %> by <%= music.artistName %></title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%% music.songName %> by <%= music.artistName %></h1>
+    <h1><%= music.songName %> by <%= music.artistName %></h1>
     <div>
         Artist Name: <%= music.artistName %>
     </div>
 
     <div>
-        Song Name: <% music.songName %>
+        Song Name: <%= music.songName %>
     </div>
 
     <div>
-        Genre: <% music.genre %>
+        Genre: <%= music.genre %>
     </div>
 
     <div>

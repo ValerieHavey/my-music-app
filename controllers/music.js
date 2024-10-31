@@ -14,14 +14,27 @@ Description: Show all of the music for a given user
 router.get('/', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
+        console.log(currentUser);
         res.render('music/index.ejs', {
-            music: currentUser.music,
+            songs: currentUser.music,
         });
     } catch (error) {
         console.log(error);
         res.redirect('/');
     }
 });
+
+/*
+Action: NEW
+Method: GET
+Route: /users/:userId/music/new
+Description: Show form for creating a new music entry
+*/
+
+router.get('/new', async (req, res) => {
+    res.render('music/new.ejs')
+})
+
 
 /*
 Action: SHOW
@@ -37,6 +50,7 @@ router.get('/:musicId', async (req, res) => {
 
         res.render('music/show.ejs', {
             music: music,
+            userId: currentUser._id,
         });
     } catch (error) {
         console.log(error);
@@ -44,16 +58,6 @@ router.get('/:musicId', async (req, res) => {
     }
 })
 
-/*
-Action: NEW
-Method: GET
-Route: /users/:userId/music/new
-Description: Show form for creating a new music entry
-*/
-
-router.get('/new', async (req, res) => {
-    res.render('music/new.ejs')
-})
 
 
 /*
@@ -89,7 +93,7 @@ Description:
 router.get('/:musicId/edit', async (req, res) => {
     try {
       const currentUser = await User.findById(req.session.user._id);
-      const music = currentUser.applications.id(req.params.musicId);
+      const music = currentUser.music.id(req.params.musicId);
   
       res.render('music/edit.ejs', {
         music: music,
@@ -111,7 +115,7 @@ Description: Updated edited song
 router.put('/:musicId', async (req, res) => {
     try {
       const currentUser = await User.findById(req.session.user._id);
-      const music = currentUser.applications.id(req.params.musicId);
+      const music = currentUser.music.id(req.params.musicId);
   
       music.set(req.body);
   
@@ -136,7 +140,7 @@ router.delete('/:musicId', async (req, res) => {
     try {
 
         const currentUser = await User.findById(req.session.user._id);
-        currentUser.music.id(req.params,musicId).deleteOne();
+        currentUser.music.id(req.params.musicId).deleteOne();
         await currentUser.save();
 
         res.redirect(`/users/${currentUser._id}/music`);

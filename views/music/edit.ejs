@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Edit <%=` ${music.songName} by ${music.artistName}` %></title>
 </head>
 <body>
@@ -10,7 +11,7 @@
     <h1>Edit <%=` ${music.songName} by ${music.artistName}` %></h1>
 
 
-    <form action="/users/<%= user._id %>/music/<%music._id%>?"_method="PUT" method="POST">
+    <form action="/users/<%= user._id %>/music/<%= music._id %>?_method=PUT" method="POST">
 
         <div>
             <label for="artistName">Artist Name:</label>
