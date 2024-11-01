@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <%- include('./partials/_head.ejs') %>
     <title>My Music App</title>
   </head>
-<body class="index-body">
-  <%- include('./partials/_navbar.ejs') %>
-  <div class="index-container">
-    <div class="text-container">
-      <h1 class="main-header">My Music App</h1>
-      <p class="subheader">An app for collecting your music.</p>
-  </div>
-</body>
+  <body>
+    <%- include('./partials/_navbar.ejs') %>
+    <main>
+      <h1>My Music App</h1>
+      <h2>An app for collecting your music.</h2>
+      <footer>Background image provided by 
+        <a class="attribution" href="https://www.freepik.com">Freepik</a>
+      </footer>
+    </main>
+  </body>
 </html>

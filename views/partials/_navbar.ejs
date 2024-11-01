@@ -1,9 +1,15 @@
 <nav>
-    <% if(user) { %>
-      <a href="/users/<%= user._id %>/music">View My Music</a>
-      <a href="/auth/sign-out">Sign Out</a>      
-    <% } else { %>
-      <a href="/auth/sign-in">Sign In</a>
-      <a href="/auth/sign-up">Sign Up</a>
-    <% } %>
-  </nav>
+  <% if(user) { %>
+  <div class="navbar">
+    <h1>My Music App</h1>
+    <a class="authlink" href="/users/<%= user._id %>/music">View My Music</a>
+    <a class="authlink" href="/auth/sign-out">Sign Out</a>
+  </div>
+  <% } else { %>
+  <div class="navbar">
+    <h1>My Music App</h1>
+    <a class="authlink" href="/auth/sign-in">Sign In</a>
+    <a class="authlink" href="/auth/sign-up">Sign Up</a>
+  </div>
+  <% } %>
+</nav>

@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <head>
+    <%- include('../partials/_head.ejs') %>
     <title><% music.songName %> by <%= music.artistName %></title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= music.songName %> by <%= music.artistName %></h1>
-    <div>
-        Artist Name: <%= music.artistName %>
-    </div>
+    <main>
+      <h1><%= music.songName %> by <%= music.artistName %></h1>
+      <div>Artist Name: <%= music.artistName %></div>
 
-    <div>
-        Song Name: <%= music.songName %>
-    </div>
+      <div>Song Name: <%= music.songName %></div>
 
-    <div>
-        Genre: <%= music.genre %>
-    </div>
+      <div>Genre: <%= music.genre %></div>
 
-    <div>
-        <a href="/users/<%= userId %>/music/<%=music._id%>/edit">Edit this song</a>
-    </div>
+      <div>
+        <a href="/users/<%= userId %>/music/<%=music._id%>/edit"
+          >Edit this song</a
+        >
+      </div>
 
-    <div>
-        <form action="/users/<%= user._id %>/music/<%= music._id %>?_method=DELETE"
-            method="POST">
+      <div>
+        <form
+          action="/users/<%= user._id %>/music/<%= music._id %>?_method=DELETE"
+          method="POST"
+        >
           <button type="submit">Delete this song</button>
         </form>
-    </div>
-</body>
+      </div>
+    </main>
+  </body>
 </html>

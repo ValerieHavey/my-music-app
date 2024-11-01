@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+  <head>
+    <%- include('../partials/_head.ejs') %>
     <title>Edit <%=` ${music.songName} by ${music.artistName}` %></title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1>Edit <%=` ${music.songName} by ${music.artistName}` %></h1>
+    <main>
+      <h1>Edit <%=` ${music.songName} by ${music.artistName}` %></h1>
 
-
-    <form action="/users/<%= user._id %>/music/<%= music._id %>?_method=PUT" method="POST">
-
+      <form
+        action="/users/<%= user._id %>/music/<%= music._id %>?_method=PUT"
+        method="POST"
+      >
         <div>
-            <label for="artistName">Artist Name:</label>
-            <input type="text" name="artistName" id="artistName" value="<%= music.artistName %>">
+          <label for="artistName">Artist Name:</label>
+          <input
+            type="text"
+            name="artistName"
+            id="artistName"
+            value="<%= music.artistName %>"
+          />
         </div>
 
         <div>
-            <label for="songName">Song Name:</label>
-            <input type="text" name="songName" id="songName" value="<%= music.songName %>">
+          <label for="songName">Song Name:</label>
+          <input
+            type="text"
+            name="songName"
+            id="songName"
+            value="<%= music.songName %>"
+          />
         </div>
 
         <div>
-            <label for="genre">Genre:</label>
-            <input type="text" name="genre" id="genre" value="<%= music.genre %>">
+          <label for="genre">Genre:</label>
+          <input
+            type="text"
+            name="genre"
+            id="genre"
+            value="<%= music.genre %>"
+          />
         </div>
 
         <div>
-            <button type="submit">Edit Song</button>
+          <button type="submit">Edit Song</button>
         </div>
-
-    </form>
-    
-</body>
+      </form>
+    </main>
+  </body>
 </html>
